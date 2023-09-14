@@ -23,10 +23,29 @@ int main(int argc, char* argv[])
 
 	// for now, assume argument is a file and print out line-by-line
 	std::string line;
-	while (infile)
+	std::string newName;
+	newName = ((std::string)argv[1]).substr(0, ((std::string)argv[1]).find(".")) + ".html";
+	//std::cout << "new filename is: " + newName;
+
+	// open output file
+	std::ofstream outfile(newName);
+	if (outfile.is_open())
 	{
-		std::getline(infile, line);
-		std::cout << line << std::endl;
+		while (infile)
+		{
+			std::getline(infile, line);
+			std::cout << line << std::endl;
+
+			//outfile << "<p>" + line + "</p>" << std::endl;
+			outfile << "<p>" + line + "</p>";
+		}
+		outfile.close();
+
+	}
+	else
+	{
+		std::cerr << "ERROR: Cannot open file" << std::endl;
+		exit(AppErrors::CannotOpenFile);
 	}
 
 	return 0;
