@@ -3,7 +3,11 @@
 
 namespace cdot
 {
-
+	class ctil
+	{
+	public:
+		
+	};
 };
 
 #endif // !CDOT_CTIL_H_

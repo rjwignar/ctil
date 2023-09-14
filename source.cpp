@@ -1,11 +1,35 @@
 // ctil.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+#include <fstream>
 #include <iostream>
-
-int main()
+#include <string>
+enum AppErrors
 {
-    std::cout << "Hello World!\n";
+	CannotOpenFile = 1, // An input file cannot be opened
+	BadArgumentCount = 2, // Not enough parameters
+};
+
+int main(int argc, char* argv[])
+{
+	std::cout << "Hello World!\n";
+
+	std::ifstream infile(argv[1]);
+	if (!infile)
+	{
+		std::cerr << "ERROR: Cannot open file" << std::endl;
+		exit(AppErrors::CannotOpenFile);
+	}
+
+	// for now, assume argument is a file and print out line-by-line
+	std::string line;
+	while (infile)
+	{
+		std::getline(infile, line);
+		std::cout << line << std::endl;
+	}
+
+	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
