@@ -31,14 +31,26 @@ int main(int argc, char* argv[])
 	std::ofstream outfile(newName);
 	if (outfile.is_open())
 	{
+		outfile << "<!doctype html>" << std::endl
+				<< "<html lang='en'>" << std::endl
+				<< "<head>" << std::endl
+				<< "<meta charset = 'utf-8'>" << std::endl
+				<< "<title>" 
+				<< newName
+				<< "</title>" << std::endl
+				<< "<meta name='viewport' content='width=device-width, initial-scale=1'>" << std::endl
+				<< "</head>" << std::endl
+				<< "<body>" << std::endl;
 		while (infile)
 		{
+			// for debug purposes - will modify in later versions
 			std::getline(infile, line);
 			std::cout << line << std::endl;
+			outfile << "<p>" + line + "</p>" << std::endl;
 
-			//outfile << "<p>" + line + "</p>" << std::endl;
-			outfile << "<p>" + line + "</p>";
 		}
+			outfile << "</body> " << std::endl
+				<< "</html>" << std::endl;
 		outfile.close();
 
 	}
