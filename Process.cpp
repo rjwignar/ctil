@@ -8,4 +8,10 @@ namespace cdot
 	{
 		return "<p>" + line + "</p>" + "\n";
 	}
+
+	std::string Process::toTitle(std::string title)
+	{
+		return "<title>" + title + "</title>" + "\n"
+			+ "<h1>"+title+"</h1>" + "\n";
+	}
 }

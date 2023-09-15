@@ -11,6 +11,7 @@ namespace cdot
 
 	public:
 		std::string toParagraph(std::string line);
+		std::string toTitle(std::string line);
 	};
 
 }
