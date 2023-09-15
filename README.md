@@ -4,7 +4,28 @@
 
 This is a command-line tool that processes .txt files into .html files
 
+
 # How to run (using g++)
+
+After cloning the repository, open the repository directory using your preferred terminal (Windows PowerShell is used in this example):
+![image](https://github.com/rjwignar/ctil/assets/78163326/017ad25b-349a-47da-8f69-5717190612e3)
+
+Verify you have g++ installed on your machine using the command `g++ --version`:
+![image](https://github.com/rjwignar/ctil/assets/78163326/fb560164-f855-4d03-8446-3a45a104a84a)
+
+Once you have verified g++ is on your system, run the following command to compile the source code files (ctil.cpp, source.cpp) into an executable called "ctil":
+
+`g++ -Wall -std=c++17 -g -o ctil ctil.cpp source.cpp`
+
+You can now run ctil as a command-line tool calling the program with a text file as an argument:
+
+`On PowerShell`: `.\ctil.exe test.txt `
+
+![image](https://github.com/rjwignar/ctil/assets/78163326/3749f641-ebbc-41e7-9b05-e34f6423b066)
+
+
+
+
 
 # How to run (using Visual Studio 2019)
 
