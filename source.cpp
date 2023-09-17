@@ -6,6 +6,8 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include "Process.h"
+#include "ctil.h"
 
 namespace fs = std::filesystem;
 enum AppErrors
@@ -26,7 +28,10 @@ int main(int argc, char* argv[])
 	}
 
 	// for now, assume argument is a file and print out line-by-line
-	std::string line;
+
+	// initialize ctil object
+	cdot::ctil ctil;
+
 	std::string newName;
 	newName = ((std::string)argv[1]).substr(0, ((std::string)argv[1]).find(".txt")) + ".html";
 	//std::cout << "new filename is: " + newName;
@@ -36,33 +41,15 @@ int main(int argc, char* argv[])
 	if (std::filesystem::exists(dir))
 		std::filesystem::remove_all(dir);
 	std::filesystem::create_directory(dir);
-	// open output file
+
+	// create newFile name using dir and newName
 	std::string newFile = dir + "/" + newName;
+	// open output file
 	std::ofstream outfile(newFile);
 	if (outfile.is_open())
 	{
-		outfile << "<!doctype html>" << std::endl
-				<< "<html lang='en'>" << std::endl
-				<< "<head>" << std::endl
-				<< "<meta charset = 'utf-8'>" << std::endl
-				<< "<title>" 
-				<< newName
-				<< "</title>" << std::endl
-				<< "<meta name='viewport' content='width=device-width, initial-scale=1'>" << std::endl
-				<< "</head>" << std::endl
-				<< "<body>" << std::endl;
-		while (infile)
-		{
-			// for debug purposes - will modify in later versions
-			std::getline(infile, line);
-			std::cout << line << std::endl;
-			outfile << "<p>" + line + "</p>" << std::endl;
-
-		}
-			outfile << "</body> " << std::endl
-				<< "</html>" << std::endl;
+		ctil.generateHTML(infile, outfile, newFile);
 		outfile.close();
-
 	}
 	else
 	{
