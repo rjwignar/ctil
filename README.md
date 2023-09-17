@@ -15,7 +15,7 @@ Verify you have g++ installed on your machine using the command `g++ --version`:
 
 Once you have verified g++ is on your system, run the following command to compile the source code files (ctil.cpp, source.cpp) into an executable called "ctil":
 
-`g++ -Wall -std=c++17 -g -o ctil ctil.cpp source.cpp`
+`g++ -Wall -std=c++17 -g -o ctil ctil.cpp Process.cpp source.cpp`
 
 You can now run ctil as a command-line tool calling the program with a text file as an argument:
 
