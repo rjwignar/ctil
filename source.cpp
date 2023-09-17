@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
 			else
 			{
 
-				std::ifstream infile(item);
+				std::ifstream infile(item.path().string());
 				if (!infile)
 				{
 					std::cerr << "ERROR: Cannot open file" << std::endl;
