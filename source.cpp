@@ -18,7 +18,7 @@ enum AppErrors
 
 int main(int argc, char* argv[])
 {
-	std::cout << "Hello World!\n";
+	//std::cout << "Hello World!\n";
 
 	// if argv[1]/ last argument is a directory
 	std::string target = argv[argc - 1];
