@@ -43,27 +43,27 @@ namespace cdot
 		// --version flag enabled
 		if (temp == "-v" || temp == "--version")
 		{
-			cmd == commands::VERSION;
+			cmd = commands::VERSION;
 		}
 		// --help flag enabled
 		else if (temp == "-h" || temp == "--help")
 		{
-			cmd == commands::HELP;
+			cmd = commands::HELP;
 		}
 		// --output flag enabled
 		else if (temp == "-o" || temp == "--output")
 		{
-			cmd == commands::OUTPUT;
+			cmd = commands::OUTPUT;
 		}
 		// the first argument after ctil.exe is a file or directory
 		else if ((std::filesystem::exists(temp)))
 		{
-			cmd == commands::ITEM;
+			cmd = commands::ITEM;
 		}
 		// invalid argument
 		else
 		{
-			cmd == commands::INVALID;
+			cmd = commands::INVALID;
 		}
 
 		switch (cmd)
@@ -76,8 +76,12 @@ namespace cdot
 			break;
 		case commands::OUTPUT:
 			// follow output logic
+			break;
 		case commands::ITEM:
 			// follow standard logic for directory/text file
+			break;
 		}
+
+		return result;
 	}
 }
