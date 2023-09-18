@@ -46,3 +46,20 @@ When you have entered your desired text file, left-click "OK" to save your chang
 
 You can now run the program by left-clicking the green "Play" button in Visual Studio or by entering "Ctrl + F5" on your keyboard:
 ![image](https://github.com/rjwignar/ctil/assets/78163326/8f8b34d0-d4ef-4d8a-a402-e136ba074800)
+
+# Usage Examples
+Converting one text file:
+`.\ctil.exe test.txt`
+
+Convert all text files in a directory
+`.\ctil.exe testDirectory`
+
+# Planned Features
+Version Flag
+`.\ctil.exe -v`, `.\ctil.exe --version`
+
+Help Flag
+`.\ctil.exe -h`, `.\ctil.exe --help`
+
+Output Flag (specifies destination folder for HTML files)
+`.\ctil.exe -o destination test.txt`, `.\ctil.exe --output destination test.txt`
