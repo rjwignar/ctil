@@ -10,6 +10,22 @@ namespace cdot
 		return std::equal(ending.rbegin(), ending.rend(), value.rbegin());
 	}
 
+	void ctil::md_italics_content_update(std::string &input) {
+		size_t found = input.find("*");
+
+		while (found != std::string::npos) {
+			size_t end = input.find("*", found + 1);
+
+			if (end != std::string::npos) {
+				std::string word_to_replace = "<i>" +input.substr(found + 1, end - found - 1) + "</i>";
+				input.replace(found, end - found + 1, word_to_replace);
+				found = input.find("*", end + 1);
+			} else {
+				break;
+			}
+		}
+	}
+
 	void ctil::generateHTML_txt(std::ifstream& infile, std::ofstream& outfile, std::string filename)
 	{
 		bool titleParsed = false;
@@ -199,23 +215,8 @@ namespace cdot
 			}
 		}
 
-		// Italics feature: change *word* to <i>word</i>
-		size_t found = bodyContent.find("*"); // Find the first occurrence of '*'
-		while (found != std::string::npos) {
-			size_t end = bodyContent.find("*", found + 1); // Find the closing '*'
-
-			if (end != std::string::npos) {
-				// Extract the text between '*' and replace it
-				std::string word_to_replace = "<i>" +bodyContent.substr(found + 1, end - found - 1) + "</i>";
-				bodyContent.replace(found, end - found + 1, word_to_replace);
-
-				// Search for the next occurrence of '*'
-				found = bodyContent.find("*", end + 1);
-			} else {
-				// No closing '*', break the loop
-				break;
-			}
-		}
+		// check possible Italics content for body content
+		md_italics_content_update(bodyContent);
 
 		// generate HTML file
 		outfile << "<!doctype html>" << std::endl
@@ -227,6 +228,8 @@ namespace cdot
 				<< "</head>" << std::endl;
 		if (titleParsed)
 		{
+			// check possible Italics content for title content
+			md_italics_content_update(title);
 			outfile << "<h1>" << title << "</h1>";
 		}
 		outfile << "<body>" << std::endl;
