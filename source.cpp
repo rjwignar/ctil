@@ -42,7 +42,10 @@ int main(int argc, char* argv[])
 		{
 			std::cout << "Found item: " << item << std::endl;
 			std::string itemPath = item.path().string();
-			if (itemPath.find(".txt") == std::string::npos || itemPath.find(".md") == std::string::npos)
+            bool has_txt_suffix = ctil.ends_with(itemPath, txt_suffix);
+            bool has_md_suffix = ctil.ends_with(itemPath, md_suffix);
+
+            if (!(has_txt_suffix || has_md_suffix))
 			{
 				std::cout << "Item: " << item << " is not a text/md file" << std::endl;
 			}
@@ -63,9 +66,6 @@ int main(int argc, char* argv[])
 
 				std::string newName;
 
-				bool has_txt_suffix = ctil.ends_with(itemName, txt_suffix);
-				bool has_md_suffix = ctil.ends_with(itemName, md_suffix);
-
 				if (has_txt_suffix) {
 					newName = itemName.substr(0, itemName.find(txt_suffix)) + ".html";
 				}else if (has_md_suffix) {
@@ -82,6 +82,7 @@ int main(int argc, char* argv[])
 				if (outfile.is_open())
 				{
 					if (has_txt_suffix) {
+                        std::cout<<newName<<"ooooooooooo";
 						ctil.generateHTML_txt(infile, outfile, newFile);
 					}else if (has_md_suffix) {
 						ctil.generateHTML_md(infile, outfile, newFile);
