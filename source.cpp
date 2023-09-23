@@ -82,7 +82,6 @@ int main(int argc, char* argv[])
 				if (outfile.is_open())
 				{
 					if (has_txt_suffix) {
-                        std::cout<<newName<<"ooooooooooo";
 						ctil.generateHTML_txt(infile, outfile, newFile);
 					}else if (has_md_suffix) {
 						ctil.generateHTML_md(infile, outfile, newFile);

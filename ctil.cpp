@@ -24,6 +24,20 @@ namespace cdot
 				break;
 			}
 		}
+
+		found = input.find("_");
+
+		while (found != std::string::npos) {
+			size_t end = input.find("_", found + 1);
+
+			if (end != std::string::npos) {
+				std::string word_to_replace = "<i>" +input.substr(found + 1, end - found - 1) + "</i>";
+				input.replace(found, end - found + 1, word_to_replace);
+				found = input.find("_", end + 1);
+			} else {
+				break;
+			}
+		}
 	}
 
 	void ctil::generateHTML_txt(std::ifstream& infile, std::ofstream& outfile, std::string filename)
