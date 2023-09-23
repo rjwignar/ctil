@@ -48,11 +48,22 @@ You can now run the program by left-clicking the green "Play" button in Visual S
 ![image](https://github.com/rjwignar/ctil/assets/78163326/8f8b34d0-d4ef-4d8a-a402-e136ba074800)
 
 # Usage Examples
-Converting one text file:
+Converting one file (.txt or .md):
 `.\ctil.exe test.txt`
+or
+`.\ctil.exe markdown_test.md`
+
 
 Convert all text files in a directory
 `.\ctil.exe testDirectory`
+
+# More Info About Markdown Support
+
+Now, this tool can also accept Markdown files as input. You can use the same method to acquire and run the tool.
+
+Currently, in the most recent version, only Italics formatting is supported. Additional features will be included in future updates.
+
+**WARNING** If you have files with the same name, e.g., `same-name.txt` and `same-name.md` in a single input folder, the output will generate only one HTML file based on the content of the Markdown file.
 
 # Planned Features
 Version Flag

@@ -7,7 +7,10 @@ namespace cdot
 	class ctil
 	{
 	public:
-		void generateHTML(std::ifstream& infile, std::ofstream& outfile, std::string filename);
+		void generateHTML_txt(std::ifstream& infile, std::ofstream& outfile, std::string filename);
+		void generateHTML_md(std::ifstream& infile, std::ofstream& outfile, std::string filename);
+		bool ends_with(std::string const & value, std::string const & ending);
+		void md_italics_content_update(std::string &input);
 	};
 };
 
