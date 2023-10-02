@@ -245,7 +245,7 @@ namespace cdot
 
 		// check possible Italics content for body content
 		md_italics_content_update(bodyContent);
-
+		horizontalBreakUpdate(bodyContent);
 		// generate HTML file
 		outfile << "<!doctype html>" << std::endl
 				<< "<html lang='en'>" << std::endl
@@ -258,6 +258,7 @@ namespace cdot
 		{
 			// check possible Italics content for title content
 			md_italics_content_update(title);
+			horizontalBreakUpdate(title);
 			outfile << "<h1>" << title << "</h1>";
 		}
 		outfile << "<body>" << std::endl;
