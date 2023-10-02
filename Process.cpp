@@ -25,7 +25,7 @@ namespace cdot
 	}
 	std::string Process::toHorizontalBreak(std::string line)
 	{
-
+		return std::string("");
 	}
 	int cdot::allArguments(int argc, char* argv[])
 	{
