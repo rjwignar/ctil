@@ -17,7 +17,6 @@ namespace cdot
 		std::string toParagraph(std::string line);
 		std::string toTitle(std::string line);
 		std::string removeWhitespace(const char* str);
-		std::string toHorizontalBreak(std::string line);
 	};
 	int allArguments(int argc, char* argv[]);
 

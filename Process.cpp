@@ -23,10 +23,7 @@ namespace cdot
 		strn.erase(std::remove_if(strn.begin(), strn.end(), ::isspace), strn.end());
 		return strn;
 	}
-	std::string Process::toHorizontalBreak(std::string line)
-	{
-		return std::string("");
-	}
+
 	int cdot::allArguments(int argc, char* argv[])
 	{
 		cdot::Process processor;
