@@ -48,7 +48,7 @@ namespace cdot
 
 		while (found != std::string::npos)
 		{
-			input.replace(found, hBreak.length() - 1, hBreakHTML);
+			input.replace(found, hBreak.length(), hBreakHTML);
 
 			// check again for hBreak, return string::npos if not found
 			found = input.find(hBreak);
