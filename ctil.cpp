@@ -39,7 +39,21 @@ namespace cdot
 			}
 		}
 	}
+	void ctil::horizontalBreakUpdate(std::string& input)
+	{
+		std::string hBreak = "---";
+		std::string hBreakHTML = "<hr />";
+		// return string::npos or valid index
+			size_t found = input.find(hBreak);
 
+		while (found != std::string::npos)
+		{
+			input.replace(found, hBreak.length() - 1, hBreakHTML);
+
+			// check again for hBreak, return string::npos if not found
+			found = input.find(hBreak);
+		}
+	}
 	void ctil::generateHTML_txt(std::ifstream& infile, std::ofstream& outfile, std::string filename)
 	{
 		bool titleParsed = false;

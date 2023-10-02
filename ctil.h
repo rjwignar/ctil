@@ -11,6 +11,7 @@ namespace cdot
 		void generateHTML_md(std::ifstream& infile, std::ofstream& outfile, std::string filename);
 		bool ends_with(std::string const & value, std::string const & ending);
 		void md_italics_content_update(std::string &input);
+		void horizontalBreakUpdate(std::string& input);
 	};
 };
 
