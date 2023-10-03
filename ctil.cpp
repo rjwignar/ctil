@@ -39,6 +39,10 @@ namespace cdot
 			}
 		}
 	}
+	void ctil::codeblockUpdate(std::string& input)
+	{
+		std::string codeBlockToken = "`";
+		size_t found = input.find(codeBlockToken);
 	void ctil::horizontalBreakUpdate(std::string& input)
 	{
 		std::string hBreak = "---";
@@ -46,6 +50,35 @@ namespace cdot
 		// return string::npos or valid index
 			size_t found = input.find(hBreak);
 
+		while (found != std::string::npos)
+		{
+			size_t end = input.find(codeBlockToken, found + 1);
+			if (end != std::string::npos)
+			{
+				std::string blockToReplace = "<code>" + input.substr(found + 1, end - found - 1) + "</code>";
+				input.replace(found, end - found + 1, blockToReplace);
+				found = input.find(codeBlockToken, end + 1);
+			}
+		}
+	}
+	void ctil::fencedCodeBlockUpdate(std::string& input)
+	{
+		std::string fencedCodeBlock = "```";
+		size_t found = input.find(fencedCodeBlock);
+
+		while (found != std::string::npos)
+		{
+			size_t end = input.find(fencedCodeBlock, found + 1);
+			if (end != std::string::npos)
+			{
+				std::string blockToReplace = "<pre><code>" + input.substr(found + 1, end - found - 1) + "</code></pre>";
+				input.replace(found, end - found + 1, blockToReplace);
+				found = input.find(fencedCodeBlock, end + 1);
+			}
+			else
+				break;
+		}
+	}
 		while (found != std::string::npos)
 		{
 			input.replace(found, hBreak.length(), hBreakHTML);
@@ -245,6 +278,11 @@ namespace cdot
 
 		// check possible Italics content for body content
 		md_italics_content_update(bodyContent);
+
+
+		// check for fenced code blocks first, then regular code blocks
+		fencedCodeBlockUpdate(bodyContent);
+		codeblockUpdate(bodyContent);
 		horizontalBreakUpdate(bodyContent);
 		// generate HTML file
 		outfile << "<!doctype html>" << std::endl
@@ -258,6 +296,10 @@ namespace cdot
 		{
 			// check possible Italics content for title content
 			md_italics_content_update(title);
+
+			// check for fenced code blocks first, then regular code blocks
+			fencedCodeBlockUpdate(bodyContent);
+			codeblockUpdate(bodyContent);
 			horizontalBreakUpdate(title);
 			outfile << "<h1>" << title << "</h1>";
 		}
