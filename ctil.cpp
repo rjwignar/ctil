@@ -4,51 +4,68 @@
 #include "ctil.h"
 namespace cdot
 {
-	bool ctil::ends_with(std::string const & value, std::string const & ending)
+	bool ctil::ends_with(std::string const& value, std::string const& ending)
 	{
 		if (ending.size() > value.size()) return false;
 		return std::equal(ending.rbegin(), ending.rend(), value.rbegin());
 	}
 
-	void ctil::md_italics_content_update(std::string &input) {
+	void ctil::md_italics_content_update(std::string& input)
+	{
 		size_t found = input.find("*");
 
-		while (found != std::string::npos) {
+		while (found != std::string::npos)
+		{
 			size_t end = input.find("*", found + 1);
 
-			if (end != std::string::npos) {
-				std::string word_to_replace = "<i>" +input.substr(found + 1, end - found - 1) + "</i>";
+			if (end != std::string::npos)
+			{
+				std::string word_to_replace = "<i>" + input.substr(found + 1, end - found - 1) + "</i>";
 				input.replace(found, end - found + 1, word_to_replace);
 				found = input.find("*", end + 1);
-			} else {
+			}
+			else
+			{
 				break;
 			}
 		}
 
 		found = input.find("_");
 
-		while (found != std::string::npos) {
+		while (found != std::string::npos)
+		{
 			size_t end = input.find("_", found + 1);
 
-			if (end != std::string::npos) {
-				std::string word_to_replace = "<i>" +input.substr(found + 1, end - found - 1) + "</i>";
+			if (end != std::string::npos)
+			{
+				std::string word_to_replace = "<i>" + input.substr(found + 1, end - found - 1) + "</i>";
 				input.replace(found, end - found + 1, word_to_replace);
 				found = input.find("_", end + 1);
-			} else {
+			}
+			else
+			{
 				break;
 			}
+		}
+	}
+	void ctil::horizontalBreakUpdate(std::string& input)
+	{
+		std::string hBreak = "---";
+		std::string hBreakHTML = "<hr />";
+		// return string::npos or valid index
+		size_t found = input.find(hBreak);
+		while (found != std::string::npos)
+		{
+			input.replace(found, hBreak.length(), hBreakHTML);
+
+			// check again for hBreak, return string::npos if not found
+			found = input.find(hBreak);
 		}
 	}
 	void ctil::codeblockUpdate(std::string& input)
 	{
 		std::string codeBlockToken = "`";
 		size_t found = input.find(codeBlockToken);
-	void ctil::horizontalBreakUpdate(std::string& input)
-	{
-		std::string hBreak = "---";
-		std::string hBreakHTML = "<hr />";
-		// return string::npos or valid index
-			size_t found = input.find(hBreak);
 
 		while (found != std::string::npos)
 		{
@@ -77,14 +94,6 @@ namespace cdot
 			}
 			else
 				break;
-		}
-	}
-		while (found != std::string::npos)
-		{
-			input.replace(found, hBreak.length(), hBreakHTML);
-
-			// check again for hBreak, return string::npos if not found
-			found = input.find(hBreak);
 		}
 	}
 	void ctil::generateHTML_txt(std::ifstream& infile, std::ofstream& outfile, std::string filename)
@@ -286,12 +295,12 @@ namespace cdot
 		horizontalBreakUpdate(bodyContent);
 		// generate HTML file
 		outfile << "<!doctype html>" << std::endl
-				<< "<html lang='en'>" << std::endl
-				<< "<head>" << std::endl
-				<< "<meta charset = 'utf-8'>" << std::endl
-				<< "<title>" << title << "</title>" << std::endl
-				<< "<meta name='viewport' content='width=device-width, initial-scale=1'>" << std::endl
-				<< "</head>" << std::endl;
+			<< "<html lang='en'>" << std::endl
+			<< "<head>" << std::endl
+			<< "<meta charset = 'utf-8'>" << std::endl
+			<< "<title>" << title << "</title>" << std::endl
+			<< "<meta name='viewport' content='width=device-width, initial-scale=1'>" << std::endl
+			<< "</head>" << std::endl;
 		if (titleParsed)
 		{
 			// check possible Italics content for title content
@@ -306,7 +315,7 @@ namespace cdot
 		outfile << "<body>" << std::endl;
 		outfile << bodyContent;
 		outfile << "</body> " << std::endl
-				<< "</html>" << std::endl;
+			<< "</html>" << std::endl;
 
 	}
 
