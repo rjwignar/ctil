@@ -41,7 +41,19 @@ namespace cdot
 	}
 	void ctil::codeblockUpdate(std::string& input)
 	{
+		std::string codeBlockToken = "`";
+		size_t found = input.find(codeBlockToken);
 
+		while (found != std::string::npos)
+		{
+			size_t end = input.find(codeBlockToken, found + 1);
+			if (end != std::string::npos)
+			{
+				std::string blockToReplace = "<code>" + input.substr(found + 1, end - found - 1) + "</code>";
+				input.replace(found, end - found + 1, blockToReplace);
+				found = input.find(codeBlockToken, end + 1);
+			}
+		}
 	}
 	void ctil::fencedCodeBlockUpdate(std::string& input)
 	{
