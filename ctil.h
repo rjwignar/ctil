@@ -12,6 +12,7 @@ namespace cdot
 		bool ends_with(std::string const & value, std::string const & ending);
 		void md_italics_content_update(std::string &input);
 		void codeblockUpdate(std::string& input);
+		void fencedCodeBlockUpdate(std::string& input);
 	};
 };
 
