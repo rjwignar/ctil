@@ -57,6 +57,8 @@ namespace cdot
 				input.replace(found, end - found + 1, blockToReplace);
 				found = input.find(fencedCodeBlock, end + 1);
 			}
+			else
+				break;
 		}
 	}
 	void ctil::generateHTML_txt(std::ifstream& infile, std::ofstream& outfile, std::string filename)
