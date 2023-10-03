@@ -39,7 +39,10 @@ namespace cdot
 			}
 		}
 	}
+	void ctil::codeblockUpdate(std::string& input)
+	{
 
+	}
 	void ctil::generateHTML_txt(std::ifstream& infile, std::ofstream& outfile, std::string filename)
 	{
 		bool titleParsed = false;
