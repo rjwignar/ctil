@@ -41,6 +41,10 @@ namespace cdot
 	}
 	void ctil::codeblockUpdate(std::string& input)
 	{
+
+	}
+	void ctil::fencedCodeBlockUpdate(std::string& input)
+	{
 		std::string fencedCodeBlock = "```";
 		size_t found = input.find(fencedCodeBlock);
 
@@ -54,10 +58,6 @@ namespace cdot
 				found = input.find(fencedCodeBlock, end + 1);
 			}
 		}
-	}
-	void ctil::fencedCodeBlockUpdate(std::string& input)
-	{
-
 	}
 	void ctil::generateHTML_txt(std::ifstream& infile, std::ofstream& outfile, std::string filename)
 	{
