@@ -65,6 +65,25 @@ Currently, in the most recent version, only Italics formatting is supported. Add
 
 **WARNING** If you have files with the same name, e.g., `same-name.txt` and `same-name.md` in a single input folder, the output will generate only one HTML file based on the content of the Markdown file.
 
+# TOML Configuration File Support
+
+This tool now supports reading TOML configuration files. You can use a TOML file to specify various settings and parameters for your tool or application.
+
+Installation Please ensure you have TOML installed in your local library if not pleae follow the link (TOML111)[https://github.com/ToruNiina/toml11]
+
+To use a TOML configuration file, create a valid TOML file (with a `.toml` extension) and provide its path as an argument when running the tool. The tool will read the configuration settings from the TOML file and apply them as needed.
+
+```ctil.exe ./site <path to directory containing config> --config ./config.toml```
+
+**NOTE** Please install CMAKE as well to properly install TOML
+
+# Version Flag Included
+to run either place the following command or change the argument placed on visual studio code. if you are having trouble with seeing the version due to CMAKE or TOML not being installed you can comment it out for now in order to run
+`.\ctil.exe -v`, `.\ctil.exe --version`
+
+
+to run example 
+
 # Planned Features
 Version Flag
 `.\ctil.exe -v`, `.\ctil.exe --version`
@@ -74,3 +93,5 @@ Help Flag
 
 Output Flag (specifies destination folder for HTML files)
 `.\ctil.exe -o destination test.txt`, `.\ctil.exe --output destination test.txt`
+
+
