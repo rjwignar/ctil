@@ -14,6 +14,7 @@ namespace cdot
 		void horizontalBreakUpdate(std::string& input);
 		void codeblockUpdate(std::string& input);
 		void fencedCodeBlockUpdate(std::string& input);
+		void parseConfigFile(const std::string& configFile);
 	};
 };
 
