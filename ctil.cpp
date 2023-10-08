@@ -1,7 +1,10 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <toml++/toml.hpp>
 #include "ctil.h"
+
+
 namespace cdot
 {
 	bool ctil::ends_with(std::string const& value, std::string const& ending)
@@ -319,4 +322,23 @@ namespace cdot
 
 	}
 
+	void ctil::parseConfigFile(const std::string& configFile)
+	{
+		try
+		{
+			const auto data = toml::parse_file(configFile);
+
+			// Extract options from the TOML file
+			const auto title = data["title"].value_or("Default Title");
+			const auto enableItalics = data["enable_italics"].value_or(true);
+			const auto enableCodeBlocks = data["enable_code_blocks"].value_or(true);
+
+			// Use the extracted options in your program
+			// For example, set title, enableItalics, enableCodeBlocks, etc.
+		}
+		catch (const toml::parse_error& e)
+		{
+			std::cerr << "Error parsing TOML configuration file: " << e << std::endl;
+		}
+	}
 }

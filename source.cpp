@@ -15,16 +15,40 @@ enum AppErrors
 	CannotOpenFile = 1, // An input file cannot be opened
 	BadArgumentCount = 2, // Not enough parameters
 };
-
+const std::string programVersion = "1.0.0"; 
+void printVersion()
+{
+	std::cout << "ctil version " << programVersion << std::endl;
+}
 int main(int argc, char* argv[])
 {
 	//std::cout << "Hello World!\n";
 
 	// if argv[1]/ last argument is a directory
 	std::string target = argv[argc - 1];
-
+	
 	std::string txt_suffix = ".txt";
 	std::string md_suffix = ".md";
+	if (argc == 2 && std::string(argv[1]) == "--version"|| argc == 2 && std::string(argv[1]) == "--v" )
+	{
+		printVersion();
+		return 0;
+	}
+
+	// Check for the -c or -config flag
+	if (argc == 2 && (std::string(argv[1]) == "-c" || std::string(argv[1]) == "-config"))
+	{
+		if (argc >= 3)
+		{
+			ctil::parseConfigFile(argv[2]); // Pass the configuration file path as the argument
+			return 0;
+		}
+		else
+		{
+			std::cerr << "Error: Missing configuration file argument." << std::endl;
+			return AppErrors::BadArgumentCount;
+		}
+	}
 
 	if (std::filesystem::is_directory(argv[argc - 1]))
 	{
