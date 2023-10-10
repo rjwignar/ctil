@@ -9,7 +9,16 @@ namespace cdot
 		if (ending.size() > value.size()) return false;
 		return std::equal(ending.rbegin(), ending.rend(), value.rbegin());
 	}
-
+	bool ctil::has_txt_suffix(std::string const& filepath)
+	{
+		std::string suffix_txt = ".txt";
+		return cdot::ctil::ends_with(filepath, suffix_txt);
+	}
+	bool ctil::has_md_suffix(std::string const& filepath)
+	{
+		std::string suffix_md = ".md";
+		return cdot::ctil::ends_with(filepath, suffix_md);
+	}
 	void ctil::md_italics_content_update(std::string& input)
 	{
 		size_t found = input.find("*");

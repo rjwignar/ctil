@@ -6,6 +6,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include "fileHandler.h"
 #include "Process.h"
 #include "ctil.h"
 
@@ -42,10 +43,10 @@ int main(int argc, char* argv[])
 		{
 			std::cout << "Found item: " << item << std::endl;
 			std::string itemPath = item.path().string();
-            bool has_txt_suffix = ctil.ends_with(itemPath, txt_suffix);
-            bool has_md_suffix = ctil.ends_with(itemPath, md_suffix);
+            //bool has_txt_suffix = ctil.ends_with(itemPath, txt_suffix);
+            //bool has_md_suffix = ctil.ends_with(itemPath, md_suffix);
 
-            if (!(has_txt_suffix || has_md_suffix))
+            if (!(cdot::ctil::has_txt_suffix(itemPath) || cdot::ctil::has_md_suffix(itemPath)))
 			{
 				std::cout << "Item: " << item << " is not a text/md file" << std::endl;
 			}
@@ -66,9 +67,9 @@ int main(int argc, char* argv[])
 
 				std::string newName;
 
-				if (has_txt_suffix) {
+				if (cdot::ctil::has_txt_suffix(itemPath)) {
 					newName = itemName.substr(0, itemName.find(txt_suffix)) + ".html";
-				}else if (has_md_suffix) {
+				}else if (cdot::ctil::has_md_suffix(itemPath)) {
 					newName = itemName.substr(0, itemName.find(md_suffix)) + ".html";
 				}
 				//std::cout << "new filename is: " + newName;
@@ -81,9 +82,9 @@ int main(int argc, char* argv[])
 				std::ofstream outfile(newFile);
 				if (outfile.is_open())
 				{
-					if (has_txt_suffix) {
+					if (cdot::ctil::has_txt_suffix(itemPath)) {
 						ctil.generateHTML_txt(infile, outfile, newFile);
-					}else if (has_md_suffix) {
+					}else if (cdot::ctil::has_md_suffix(itemPath)) {
 						ctil.generateHTML_md(infile, outfile, newFile);
 					}
 					outfile.close();
@@ -112,21 +113,21 @@ int main(int argc, char* argv[])
 		cdot::ctil ctil;
 
 		std::string newName;
-		bool has_txt_suffix = ctil.ends_with(argv[1], txt_suffix);
-		bool has_md_suffix = ctil.ends_with(argv[1], md_suffix);
+		//bool has_txt_suffix = ctil.ends_with(argv[1], txt_suffix);
+		//bool has_md_suffix = ctil.ends_with(argv[1], md_suffix);
 
-		if (has_txt_suffix) {
+		if (cdot::ctil::has_txt_suffix(argv[1])) {
 			newName = ((std::string)argv[1]).substr(0, ((std::string)argv[1]).find(txt_suffix)) + ".html";
-		}else if (has_md_suffix) {
+		}else if (cdot::ctil::has_md_suffix(argv[1])) {
 			newName = ((std::string)argv[1]).substr(0, ((std::string)argv[1]).find(md_suffix)) + ".html";
 		}
 		//std::cout << "new filename is: " + newName;
 
 		// create destination directory (./ctil by default)
+
 		std::string dir = "ctil";
-		if (std::filesystem::exists(dir))
-			std::filesystem::remove_all(dir);
-		std::filesystem::create_directory(dir);
+		cdot::fileHandler fileHandler;
+		fileHandler.initializeDirectory(dir);
 
 		// create newFile name using dir and newName
 		std::string newFile = dir + "/" + newName;
@@ -134,9 +135,9 @@ int main(int argc, char* argv[])
 		std::ofstream outfile(newFile);
 		if (outfile.is_open())
 		{
-			if (has_txt_suffix) {
+			if (cdot::ctil::has_txt_suffix(argv[1])) {
 				ctil.generateHTML_txt(infile, outfile, newFile);
-			}else if (has_md_suffix) {
+			}else if (cdot::ctil::has_md_suffix(argv[1])) {
 				ctil.generateHTML_md(infile, outfile, newFile);
 			}
 			outfile.close();
