@@ -194,6 +194,9 @@ namespace cdot
 		outfile << "<!doctype html>" << std::endl
 			<< "<html lang='en'>" << std::endl
 			<< "<head>" << std::endl
+			<< "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css'>" << std::endl
+			<< "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js'></script>" << std::endl
+			<< "<script>hljs.highlightAll();</script>" << std::endl
 			<< "<meta charset = 'utf-8'>" << std::endl
 			<< "<title>" << title << "</title>" << std::endl
 			<< "<meta name='viewport' content='width=device-width, initial-scale=1'>" << std::endl
@@ -306,6 +309,9 @@ namespace cdot
 		outfile << "<!doctype html>" << std::endl
 			<< "<html lang='en'>" << std::endl
 			<< "<head>" << std::endl
+			<< "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css'>" << std::endl
+			<< "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js'></script>" << std::endl
+			<< "<script>hljs.highlightAll();</script>" << std::endl
 			<< "<meta charset = 'utf-8'>" << std::endl
 			<< "<title>" << title << "</title>" << std::endl
 			<< "<meta name='viewport' content='width=device-width, initial-scale=1'>" << std::endl
