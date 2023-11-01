@@ -91,13 +91,13 @@ namespace cdot
 	{
 		std::string fencedCodeBlock = "```";
 		size_t found = input.find(fencedCodeBlock);
-
+		std::string lang = " class='language-html'";
 		while (found != std::string::npos)
 		{
 			size_t end = input.find(fencedCodeBlock, found + 1);
 			if (end != std::string::npos)
 			{
-				std::string blockToReplace = "<pre><code>" + input.substr(found + 1, end - found - 1) + "</code></pre>";
+				std::string blockToReplace = "<pre><code" + lang + ">" + input.substr(found + 1, end - found - 1) + "</code></pre>";
 				input.replace(found, end - found + 1, blockToReplace);
 				found = input.find(fencedCodeBlock, end + 1);
 			}
