@@ -154,13 +154,15 @@ You can now run ctil as a command-line tool calling the program with a text file
 ##### Clang Tools Setup
 ctil is currently developed using Visual Studio 2019 Community Edition Version 16.11.
 [clang-format]([ClangFormat — Clang 18.0.0git documentation (llvm.org)](https://clang.llvm.org/docs/ClangFormat.html)) is used as the project code formatter, and [clang-tidy]([Clang-Tidy — Extra Clang Tools 18.0.0git documentation (llvm.org)](https://clang.llvm.org/extra/clang-tidy/)) is used as the code linter. **Both clang-format and clang-tidy** can be installed in your Visual Studio 2019 build. To do this, inlclude the  `C++ Clang tools for Windows (12.0.0.0)` component of the `Desktop development with C++`  workload in your Visual Studio 2019 installation using the `Visual Studio Installer`:
-![[Pasted image 20231104174113.png]]
+![image](https://github.com/rjwignar/ctil/assets/78163326/449967a8-5adb-43fc-9100-dabd478f2f34)
 
 #### Integrating Clang Tools into Visual Studio 2019 with the Clang Power Tools Extension
 Both clang-format and clang-tidy can be integrated into Visual Studio 2019 with the Clang Power Tools Extension. To install Clang Power Tools, from the Visual Studio window left-click Extensions-> Manage Extensions:
-![[Pasted image 20231104202908.png]]
+![image](https://github.com/rjwignar/ctil/assets/78163326/15145ea0-179e-449e-b284-17cba284247e)
+
 Then search for "Clang Power Tools" in the Extensions search box and Download "Clang Power Tools":
-![[Pasted image 20231104203025.png]]
+![image](https://github.com/rjwignar/ctil/assets/78163326/55ed2f07-e5c7-46d6-aca4-5cac6efa7c6a)
+
 Installing Clang Power Tools allows you to run `clang-format` and `clang-tidy` from the Visual Studio IDE. To run these tools from the command line, you may need to first [add the clang tools to your PATH]([Add to the PATH on Windows 10 and Windows 11 | Architect Ryan](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/)) :
 `clang-format`, `clang-tidy` and other clang tools should be available in the following path:
 `C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\Llvm\bin`.
