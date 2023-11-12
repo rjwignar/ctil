@@ -151,6 +151,7 @@ You can now run ctil as a command-line tool calling the program with a text file
 
 
 #### Visual Studio 2019 Setup
+
 ##### Clang Tools Setup
 ctil is currently developed using Visual Studio 2019 Community Edition Version 16.11.
 [clang-format]([ClangFormat — Clang 18.0.0git documentation (llvm.org)](https://clang.llvm.org/docs/ClangFormat.html)) is used as the project code formatter, and [clang-tidy]([Clang-Tidy — Extra Clang Tools 18.0.0git documentation (llvm.org)](https://clang.llvm.org/extra/clang-tidy/)) is used as the code linter. **Both clang-format and clang-tidy** can be installed in your Visual Studio 2019 build. To do this, inlclude the  `C++ Clang tools for Windows (12.0.0.0)` component of the `Desktop development with C++`  workload in your Visual Studio 2019 installation using the `Visual Studio Installer`:
@@ -180,6 +181,27 @@ To format the source code files, run the following command from the project dire
 ##### Linting with clang-tidy
 To lint the source code files, run the following command from the project directory:
 `clang-tidy --config-file=".clang-tidy" *.cpp *.h`
+
+### Testing Guidelines
+
+#### Testing Environment  (Using Google Test)
+Google Test is the testing environemnt. Specifically, Google Test v140 is used and can be directly added to your Visual Studio installation. Please follow [this step]([Use Google Test for C++ - Visual Studio (Windows) | Microsoft Learn](https://learn.microsoft.com/en-us/visualstudio/test/how-to-use-google-test-for-cpp?view=vs-2022#add-a-google-test-project-in-visual-studio-2022)) to ensure the "Test Adapter for Google Test" component is added to your Visual Studio installation. Please note this step will work and add Google Test support to Visual Studio 2017 and later.
+
+Google Test is already integrated into the solution file. After opening ctil.sln, you will see two projects: ctil and testLibrary (Google Test).
+![[Pasted image 20231112030315.png]]
+
+Running the `ctil` project will run the main program. Running the `testLibrary` project will run unit tests.
+To select between the two, right-click either project and left-click "Set as Startup Project"
+![[Pasted image 20231112030728.png]]
+
+#### Adding Tests
+Unit Tests currently exist in `test.cpp`.
+Unit Tests for each module will have a TestSuiteName of `ModuleTest`:
+For example, unit tests on the `ctil` module will use the `CtilTest` TestSuiteName
+
+#### Test Environment Caveats
+- Google Tests currently has no native support for a coverage report, at least as far as I'm aware.
+- There are currently no plans to add external libraries that provide test coverage reports
 
 #### How to run ctil (using Visual Studio 2019)
 
