@@ -185,14 +185,17 @@ To lint the source code files, run the following command from the project direct
 ### Testing Guidelines
 
 #### Testing Environment  (Using Google Test)
-Google Test is the testing environemnt. Specifically, Google Test v140 is used and can be directly added to your Visual Studio installation. Please follow [this step]([Use Google Test for C++ - Visual Studio (Windows) | Microsoft Learn](https://learn.microsoft.com/en-us/visualstudio/test/how-to-use-google-test-for-cpp?view=vs-2022#add-a-google-test-project-in-visual-studio-2022)) to ensure the "Test Adapter for Google Test" component is added to your Visual Studio installation. Please note this step will work and add Google Test support to Visual Studio 2017 and later.
+[Google Test]([Google Test]([url](https://github.com/google/googletest)) is the testing environemnt. The Google Test documentation provides a [primer]([url](https://google.github.io/googletest/primer.html)) to familiarize first-time users.
+Specifically, Google Test v140 is used and can be directly added to your Visual Studio installation. Please follow [this step]([Use Google Test for C++ - Visual Studio (Windows) | Microsoft Learn](https://learn.microsoft.com/en-us/visualstudio/test/how-to-use-google-test-for-cpp?view=vs-2022#add-a-google-test-project-in-visual-studio-2022)) to ensure the "Test Adapter for Google Test" component is added to your Visual Studio installation. Please note this step will work and add Google Test support to Visual Studio 2017 and later.) is the testing environemnt. Specifically, Google Test v140 is used and can be directly added to your Visual Studio installation. Please follow [this step]([Use Google Test for C++ - Visual Studio (Windows) | Microsoft Learn](https://learn.microsoft.com/en-us/visualstudio/test/how-to-use-google-test-for-cpp?view=vs-2022#add-a-google-test-project-in-visual-studio-2022)) to ensure the "Test Adapter for Google Test" component is added to your Visual Studio installation. Please note this step will work and add Google Test support to Visual Studio 2017 and later.
 
 Google Test is already integrated into the solution file. After opening ctil.sln, you will see two projects: ctil and testLibrary (Google Test).
-![[Pasted image 20231112030315.png]]
+![image](https://github.com/rjwignar/ctil/assets/78163326/8874dbba-b36b-4a93-8fd6-37024f4a0c12)
+
 
 Running the `ctil` project will run the main program. Running the `testLibrary` project will run unit tests.
 To select between the two, right-click either project and left-click "Set as Startup Project"
-![[Pasted image 20231112030728.png]]
+![image](https://github.com/rjwignar/ctil/assets/78163326/7ce49980-a8f8-4431-94e7-b49d4aebd4b6)
+
 
 #### Adding Tests
 Unit Tests currently exist in `test.cpp`.
