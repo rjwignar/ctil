@@ -52,5 +52,7 @@ jobs:
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} testLibrary.vcxproj
     - name: List files
       run: ls
+    - name: List files in Release folder
+      run: ls Release
     - name: Run tests
       run: .\testLibrary\bin\${{env.BUILD_CONFIGURATION}}\testLibrary.exe
