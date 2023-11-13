@@ -55,4 +55,4 @@ jobs:
     - name: List files in Release folder
       run: ls Release
     - name: Run tests
-      run: .\testLibrary\bin\${{env.BUILD_CONFIGURATION}}\testLibrary.exe
+      run: .\${{env.BUILD_CONFIGURATION}}\testLibrary.exe
