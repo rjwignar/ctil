@@ -14,8 +14,7 @@ TEST(CtilTest, TxtSuffixFalse) {
 
 TEST(CtilTest, HorizontalBreaksReplaced) {
   cdot::ctil ctil;
-  std::string test = "--- ";// remove later
-  //std::string test = "--- I like markdown!";
+  std::string test = "--- I like markdown!";
   ctil.horizontalBreakUpdate(test);
   EXPECT_EQ(test, "<hr /> I like markdown!");
 }
