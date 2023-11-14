@@ -78,13 +78,13 @@ void ctil::fencedCodeBlockUpdate(std::string &input) {
   size_t found = input.find(fencedCodeBlock);
   std::string lang = " class='language-html'";
   while (found != std::string::npos) {
-    size_t end = input.find(fencedCodeBlock, found + 1);
+    size_t end = input.find(fencedCodeBlock, found + 3);
     if (end != std::string::npos) {
       std::string blockToReplace = "<pre><code" + lang + ">" +
-                                   input.substr(found + 1, end - found - 1) +
+                                   input.substr(found + 3, end - found - 3) +
                                    "</code></pre>";
-      input.replace(found, end - found + 1, blockToReplace);
-      found = input.find(fencedCodeBlock, end + 1);
+      input.replace(found, end + 3, blockToReplace);
+      found = input.find(fencedCodeBlock, end + 3);
     } else
       break;
   }
