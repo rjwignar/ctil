@@ -201,6 +201,12 @@ Unit Tests currently exist in `test.cpp`.
 Unit Tests for each module will have a TestSuiteName of `ModuleTest`:
 For example, unit tests on the `ctil` module will use the `CtilTest` TestSuiteName
 
+
+If `ctil` source code is being modified as part of test-driven development (need to check if new code satisfies test), you will need to rebuild both solutions so the Google Test `testLibrary` project will be aware of the new changes:
+![image](https://github.com/rjwignar/ctil/assets/78163326/8512fcaa-1a94-49d8-a4aa-f1f283ac66c8)
+
+
+
 #### Test Environment Caveats
 - Google Tests currently has no native support for a coverage report, at least as far as I'm aware.
 - There are currently no plans to add external libraries that provide test coverage reports
