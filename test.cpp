@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "ctil.cpp"
 #include "ctil.h"
-using namespace cdot;
+
 TEST(CtilTest, TxtSuffixTrue) {
   cdot::ctil ctil;
   EXPECT_TRUE(ctil.has_txt_suffix("test.txt"));
