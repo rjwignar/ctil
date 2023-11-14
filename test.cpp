@@ -25,3 +25,10 @@ TEST(CtilTest, CodeBlockUpdateTest) {
   ctil.codeblockUpdate(test);
   EXPECT_EQ(test, "<code>This is a sentence.</code>");
 }
+
+TEST(CtilTest, FencedCodeBlockUpdateTestHTML) {
+  cdot::ctil ctil;
+  std::string test = "```This is a sentence.```";
+  ctil.fencedCodeBlockUpdate(test);
+  EXPECT_EQ(test, "<pre><code class='language-html'>This is a sentence.</code></pre>");
+}
