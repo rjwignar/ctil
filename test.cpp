@@ -32,3 +32,15 @@ TEST(CtilTest, FencedCodeBlockUpdateTestHTML) {
   ctil.fencedCodeBlockUpdate(test);
   EXPECT_EQ(test, "<pre><code class='language-html'>This is a sentence.</code></pre>");
 }
+
+TEST(CtilTest, EndsWithTrue) {
+  cdot::ctil ctil;
+  std::string test = "sample_file.txt";
+  EXPECT_TRUE(ctil.ends_with(test, ".txt"));
+}
+
+TEST(CtilTest, EndsWithFalse) {
+  cdot::ctil ctil;
+  std::string test = "sample_file.txt";
+  EXPECT_FALSE(ctil.ends_with(test, ".html"));
+}
