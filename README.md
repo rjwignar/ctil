@@ -23,6 +23,7 @@ Once the zip file has been downloaded, navigate to the directory and extract the
 
 ![image](https://github.com/rjwignar/ctil/assets/78163326/acf88607-17bc-4155-a535-a547bf10ccf9)
 
+
 `ctil.exe` will now be available in your directory for use.
 
 ## Open your terminal of choice
