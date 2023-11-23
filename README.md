@@ -14,11 +14,13 @@ Left-click the **ctilvX.Y.Z.zip** to download the program.
 ![image](https://github.com/rjwignar/ctil/assets/78163326/8ef2a202-64e5-4c0c-8029-c2853563c304)
 
 The zip file will contain the program executable file (ctil.exe). For convenience, save the zip file to the directory containing your `.txt` and/or `.md` files:
+
 ![image](https://github.com/rjwignar/ctil/assets/78163326/dd4191e6-29e8-4af3-87f3-bd1b858efa32)
 
 ## Extract 
 Once the zip file has been downloaded, navigate to the directory and extract the zip file using your file decompression software of choice
 (E.g. WinRAR, gunzip):
+
 ![image](https://github.com/rjwignar/ctil/assets/78163326/acf88607-17bc-4155-a535-a547bf10ccf9)
 
 `ctil.exe` will now be available in your directory for use.
