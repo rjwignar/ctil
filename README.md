@@ -4,7 +4,7 @@
 
 This is a command-line tool that processes .txt files into .html files
 
-# Installation
+# User Installation
 The latest version of ctil can be installed using the latest GitHub release.
 Left-click the latest release on the right-hand side of the repository page:
 ![image](https://github.com/rjwignar/ctil/assets/78163326/72142ab1-2849-473e-aaf9-cb490439b68c)
